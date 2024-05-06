@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#Write a Bash script that displays:
+
+To infinity and beyond indefinitely
+With a sleep 2 in between each iteration
+I am invincible!!! when receiving a SIGTERM signal#
+
+pid=$(ps aux | grep "7-highlander" | grep -v grep | awk '{print $2}')
+
+# Terminate the process by sending SIGTERM
+if [ -n "$pid" ]; then
+    echo "Stopping 7-highlander process..."
+    kill -TERM "$pid"
+else
+    echo "7-highlander process not found."
+fi
