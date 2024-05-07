@@ -3,7 +3,7 @@
 input = ARGV[0]
 
 # Define the regular expression pattern
-pattern = Oniguruma::ORegexp.new('\hbtn\b')
+pattern = Oniguruma::ORegexp.new('htn')
 
 # Match the input against the pattern
 match = pattern.match(input)
