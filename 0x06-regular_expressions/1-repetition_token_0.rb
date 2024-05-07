@@ -3,10 +3,10 @@
 input = ARGV[0]
 
 # Define the regular expression pattern
-pattern = /\bSchool\b/
+pattern = Oniguruma::ORegexp.new('\bSchool\b')
 
 # Match the input against the pattern
-match = input.match(pattern)
+match = pattern.match(input)
 
 # Print the matched result
 puts match ? match[0] : ""
