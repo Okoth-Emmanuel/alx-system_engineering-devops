@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Check if the script is running as root
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+# Define the new IP addresses
+new_localhost_ip="127.0.0.2"
+new_facebook_ip="8.8.8.8"
+
+# Replace localhost IP address in /etc/hosts
+sed -i "s/127.0.0.1/127.0.0.2/g" /etc/hosts
+
+# Add an entry for facebook.com in /etc/hosts
+echo "$new_facebook_ip facebook.com" >> /etc/hosts
+
+# Display success message
+echo "Configuration completed:"
+echo "localhost resolves to $new_localhost_ip"
+echo "facebook.com resolves to $new_facebook_ip"
